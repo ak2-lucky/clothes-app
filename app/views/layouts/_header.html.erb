@@ -4,6 +4,11 @@
       <ul class="nav nav-masthead justify-content-center">
         <li class="nav-link active"><%= link_to "HOME", root_path %></li>
         <li class="nav-link"><%= link_to "ABOUT", about_path %></li>
+        <% if user_signed_in? %>
+          <li class="nav-link"><%= link_to "LOG OUT", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li class="nav-link"><%= link_to "LOG IN", new_user_session_path %></li>
+        <% end %>
       </ul>
     </div>
   </header>

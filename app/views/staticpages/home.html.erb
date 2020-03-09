@@ -1,10 +1,21 @@
 <% provide(:title, "Home") %>
+<% if user_signed_in? %>
+<%= current_user.id %>
+<%= current_user.username %>
+<%= current_user.sex %>
+<%= current_user.height %>
+<% else %>
 <div class="inner cover">
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
   <div class="cover-content">
     <h1 class="cover-heading">貴方にとってより良い服選び</h1>
     <p class="lead">UNIQLOとGUの商品のレビューサイトです。</p>
     <p class="lead">
-      <a href="#" class="btn btn-lg btn-secondary">Sign Up</a>
+      <div class="btn btn-lg btn-secondary">
+        <%= link_to "Sign Up",  new_user_registration_path %>
+      </div>
     </p>
   </div>
 </div>
+<% end %>

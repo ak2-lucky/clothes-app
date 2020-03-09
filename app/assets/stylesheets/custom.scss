@@ -7,19 +7,26 @@
  */
 
 /* Links */
-a,
-a:focus,
-a:hover {
-  color: #fff;
+a {
+  color: white;
+}
+
+.btn a {
+  color: orange;
+}
+
+.btn {
+  background-color: Transparent;
+}
+
+.btn:hover {
+  background-color: orange;
 }
 
 /* Custom default button */
 .btn-secondary,
 .btn-secondary:hover,
 .btn-secondary:focus {
-  color: #333;
-  text-shadow: none; /* Prevent inheritance from `body` */
-  background-color: #fff;
   border: .05rem solid #fff;
 }
 
@@ -114,7 +121,6 @@ body {
 }
 
 .cover .btn-lg {
-  padding: .75rem 1.25rem;
   font-weight: 700;
 }
 
@@ -132,6 +138,13 @@ body {
   text-align: center;
 }
 
-
+.notice {
+  padding: 0rem;
+  margin: 0rem;
+}
+.alert {
+  padding: 0rem;
+  margin: 0rem;
+}
 
 
