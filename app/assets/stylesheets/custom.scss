@@ -5,7 +5,9 @@
 /*
  * Globals
  */
-
+ ul {
+  list-style: none;
+}
 /* Links */
 a {
   color: white;
@@ -147,4 +149,7 @@ body {
   margin: 0rem;
 }
 
+.field_with_errors {
+  display: contents;
+}
 

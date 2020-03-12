@@ -4,7 +4,7 @@
   <%= render "devise/shared/error_messages", resource: resource %>
   
   <div class="field">
-    <%= f.label :username %><br/>
+    <%= f.label :username %><br />
     <%= f.text_field :username, autofocus: true %>
   </div>
 
@@ -19,7 +19,7 @@
   </div>
   
   <div class="field">
-    <%= f.label :height %>(cm)<br />
+    <%= f.label :height %><br />
     <%= f.select :height, [["130cm台", "130cm台"], ["140cm台", "140cm台"],
     ["150cm台", "150cm台"], ["160cm台", "160cm台"],["170cm台", "170cm台"],
     ["180cm台", "180cm台"], ["190cm台", "190cm台"]],:prompt => "選択してください" %>

@@ -1,9 +1,6 @@
 <% provide(:title, "Home") %>
 <% if user_signed_in? %>
-<%= current_user.id %>
-<%= current_user.username %>
-<%= current_user.sex %>
-<%= current_user.height %>
+
 <% else %>
 <div class="inner cover">
 <p class="notice"><%= notice %></p>
