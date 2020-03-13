@@ -1,0 +1,35 @@
+---
+ja:
+  activerecord:
+    errors:
+      models:
+        post:
+          attributes:
+            context:
+              blank: "が入力されていません。"
+              too_long: "は%{count}文字以下に設定して下さい。"
+            brand:
+              blank: "が入力されていません。"
+            user_id:
+              blank: "が入力されていません。"
+            category:
+              blank: "が入力されていません。"
+            rate:
+              blank: "が入力されていません。"
+            sex:
+              blank: "が入力されていません。"
+      messages:
+        record_invalid: 'バリデーションに失敗しました: %{errors}'
+        restrict_dependent_destroy:
+          has_one: "%{record}が存在しているので削除できません"
+          has_many: "%{record}が存在しているので削除できません"
+    attributes:
+      post:
+        user_id: ユーザーid
+        context: 投稿内容
+        brand: ブランド
+        category: カテゴリー
+        rate: 評価
+        sex: 性別
+        created_at: 登録日時
+        updated_at: 更新日時
