@@ -104,6 +104,10 @@ body {
  
 .text-center {
   height: 100%;
+  background: #9CECFB;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #0052D4, #65C7F7, #9CECFB);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #0052D4, #65C7F7, #9CECFB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 
 .cover {
@@ -152,4 +156,15 @@ body {
 .field_with_errors {
   display: contents;
 }
+
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+
+
 
