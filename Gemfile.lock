@@ -52,6 +52,9 @@ GEM
       popper_js (>= 1.14.3, < 2)
       sassc-rails (>= 2.0.0)
     builder (3.2.4)
+    bullet (6.1.0)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.11)
     byebug (11.1.1)
     capybara (3.31.0)
       addressable
@@ -101,6 +104,8 @@ GEM
     factory_bot_rails (5.1.1)
       factory_bot (~> 5.1.0)
       railties (>= 4.2.0)
+    faker (2.10.2)
+      i18n (>= 1.6, < 2)
     faraday (0.17.3)
       multipart-post (>= 1.2, < 3)
     ffi (1.12.2)
@@ -300,6 +305,18 @@ GEM
       thor (>= 0.14, < 2.0)
     json (2.3.0)
     jwt (2.2.1)
+    kaminari (1.2.0)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.2.0)
+      kaminari-activerecord (= 1.2.0)
+      kaminari-core (= 1.2.0)
+    kaminari-actionview (1.2.0)
+      actionview
+      kaminari-core (= 1.2.0)
+    kaminari-activerecord (1.2.0)
+      activerecord
+      kaminari-core (= 1.2.0)
+    kaminari-core (1.2.0)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -334,6 +351,8 @@ GEM
     parser (2.7.0.4)
       ast (~> 2.4.0)
     pg (1.2.2)
+    polyamorous (2.3.0)
+      activerecord (>= 5.0)
     popper_js (1.16.0)
     public_suffix (4.0.3)
     puma (3.12.4)
@@ -372,6 +391,12 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rainbow (3.0.0)
     rake (13.0.1)
+    ransack (2.3.0)
+      actionpack (>= 5.0)
+      activerecord (>= 5.0)
+      activesupport (>= 5.0)
+      i18n
+      polyamorous (= 2.3.0)
     rb-fsevent (0.10.3)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
@@ -492,6 +517,7 @@ GEM
       unf_ext
     unf_ext (0.0.7.6)
     unicode-display_width (1.6.1)
+    uniform_notifier (1.13.0)
     warden (1.2.8)
       rack (>= 2.0.6)
     web-console (3.7.0)
@@ -513,6 +539,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootstrap (~> 4.3.1)
+  bullet
   byebug
   capybara (>= 2.15)
   carrierwave
@@ -521,9 +548,11 @@ DEPENDENCIES
   devise-i18n
   devise-i18n-views
   factory_bot_rails
+  faker
   fog
   jbuilder (~> 2.5)
   jquery-rails
+  kaminari
   listen (>= 3.0.5, < 3.2)
   mini_magick
   pg
@@ -531,6 +560,7 @@ DEPENDENCIES
   rails (~> 5.1.7)
   rails-controller-testing
   rails-i18n
+  ransack
   rspec-rails
   rubocop-airbnb
   sass-rails (~> 5.0)

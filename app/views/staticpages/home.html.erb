@@ -1,6 +1,6 @@
 <% provide(:title, "Home") %>
 <% if user_signed_in? %>
-
+<%= link_to "投稿", new_post_path %>
 <% else %>
 <div class="inner cover">
 <p class="notice"><%= notice %></p>

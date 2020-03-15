@@ -22,7 +22,9 @@ gem 'devise-i18n-views'
 gem 'rails-i18n'
 gem 'carrierwave'
 gem 'mini_magick'
-
+gem 'ransack'
+gem 'faker'
+gem 'kaminari'
 
 # gem 'capistrano-rails', group: :development
 
@@ -37,6 +39,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
   gem 'rubocop-airbnb'
+  gem 'bullet'
 end
 
 group :production do

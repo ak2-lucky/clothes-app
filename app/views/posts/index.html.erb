@@ -1,0 +1,56 @@
+<h1>検索</h1>
+<%= search_form_for @q do |f| %>
+
+  <div class="form-group">
+    <%= f.label :sex_eq, '性別', class:'col-md-3 col-form-label' %>  
+    <%= f.collection_select :sex_eq, Post.select(:sex).distinct, :sex, :sex, include_blank: '選択してください' %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :brand_eq, 'ブランド', class:'col-md-3 col-form-label' %>  
+    <%= f.collection_select :brand_eq, Post.select(:brand).distinct, :brand, :brand, include_blank: '選択してください' %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :category_eq, 'カテゴリー', class:'col-md-3 col-form-label' %>  
+    <%= f.collection_select :category_eq, Post.select(:category).distinct, :category, :category, include_blank: '選択してください' %>
+  </div>
+  
+  
+    <%= f.submit value: "検索" %>    
+<% end %>
+
+<ul>
+<%= paginate @posts %>
+  <% @posts.each do |post| %>
+  <div class = "post_feed">
+  <li>
+    <div class= "post-left">
+    <span class="user">
+      投稿者情報 : <%= post.user.username %> <%= post.user.sex %> <%= post.user.height %>
+    </span>
+    <span class="rate">
+      <div id="star-rate-<%= post.id %>">評価 : </div>
+      <%= render 'layouts/shim_star_index', post: post %>
+    </span>
+    <span class="img">
+       <%= link_to post do %>
+        服の画像 : <%= image_tag post.picture ,width: '50px' %>
+       <% end %>
+    </span>
+    </div>
+    <div class ="post-right">
+      <span class="user">
+      カテゴリー : <%= post.sex %> <%= post.brand %> <%= post.category %><br>
+      商品名 : <%= post.product_name %>
+    </span><br>
+     <span class="context">
+      評価内容 : <%= post.context %>
+    </span>
+    </div>
+  </li>
+  </div>
+  <% end %>
+  
+<%= paginate @posts %>
+</ul>

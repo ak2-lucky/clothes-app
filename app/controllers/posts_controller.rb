@@ -1,7 +1,11 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:show, :create, :destroy]
+  before_action :authenticate_user!, only: [:new, :show, :create, :destroy]
   before_action :current_user,   only: :destroy
   
+  def index
+    @q = Post.ransack(params[:q])
+    @posts = @q.result(distinct: true).page(params[:page]).per(2)
+  end
   
   def new
     @post = current_user.posts.build if user_signed_in?
@@ -17,6 +21,7 @@ class PostsController < ApplicationController
   end
   
   def show
+    @post = Post.find_by(id: params[:id])
   end
   
   def destroy
