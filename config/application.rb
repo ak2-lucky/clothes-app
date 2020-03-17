@@ -11,7 +11,6 @@ module ClothesApp
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
     config.i18n.default_locale = :ja
-    config.web_console.whitelisted_ips = '139.101.24.9'
  
 
     # Settings in config/environments/* take precedence over those specified here.
