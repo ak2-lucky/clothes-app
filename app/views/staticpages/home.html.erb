@@ -1,10 +1,5 @@
 <% provide(:title, "Home") %>
-<% if user_signed_in? %>
-<%= link_to "投稿", new_post_path %>
-<% else %>
 <div class="inner cover">
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
   <div class="cover-content">
     <h1 class="cover-heading">貴方にとってより良い服選びのために</h1>
     <p class="lead">UNIQLOとGUの商品のレビューサイトです。</p>
@@ -15,4 +10,3 @@
     </p>
   </div>
 </div>
-<% end %>

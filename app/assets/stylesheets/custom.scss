@@ -172,9 +172,7 @@ body {
   padding: 0px 10px;
 }
 
-.post-left .post-right {
-  display: inline;
-}
+
 
 
 
@@ -194,4 +192,29 @@ body {
   background: #93c9ff;     /*背景の色を変える*/
 }
 
-
+.microposts {
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+  .context {
+    display: block;
+    margin-left: 60px;
+    img {
+      display: block;
+      padding: 5px 0;
+      width:100px;
+    }
+  }
+  .timestamp {
+    color: gray;
+    display: block;
+    margin-left: 60px;
+  }
+}

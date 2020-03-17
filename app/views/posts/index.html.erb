@@ -28,16 +28,16 @@
     <div class= "post-left">
     <span class="user">
       投稿者情報 : <%= post.user.username %> <%= post.user.sex %> <%= post.user.height %>
-    </span>
+    </span><br>
     <span class="rate">
       <div id="star-rate-<%= post.id %>">評価 : </div>
       <%= render 'layouts/shim_star_index', post: post %>
-    </span>
+    </span><br>
     <span class="img">
        <%= link_to post do %>
         服の画像 : <%= image_tag post.picture ,width: '50px' %>
        <% end %>
-    </span>
+    </span><br>
     </div>
     <div class ="post-right">
       <span class="user">
@@ -46,7 +46,10 @@
     </span><br>
      <span class="context">
       評価内容 : <%= post.context %>
-    </span>
+    </span><br>
+    <span class="timestamp">
+    投稿日時 <%= time_ago_in_words(post.created_at) %> ago.
+  </span>
     </div>
   </li>
   </div>

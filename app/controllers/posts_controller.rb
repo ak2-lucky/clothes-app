@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   
   def index
     @q = Post.ransack(params[:q])
-    @posts = @q.result(distinct: true).page(params[:page]).per(2)
+    @posts = @q.result(distinct: true).page(params[:page]).per(5)
   end
   
   def new
@@ -25,6 +25,9 @@ class PostsController < ApplicationController
   end
   
   def destroy
+    @post.destroy
+    flash[:success] = "投稿を削除しました"
+    redirect_to request.referrer || root_url
   end
   
   private
