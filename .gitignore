@@ -25,4 +25,3 @@
 /heroku
 # アップロードされたテスト画像を無視する
 /public/uploads
-app/assets/images
