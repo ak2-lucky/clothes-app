@@ -35,16 +35,7 @@
     <%= f.hidden_field :rate, id: :post_star %>
   </div>
   
-  <script>
-  $('#star').raty({
-    size     : 36,
-    starOff:  '<%= asset_path('star-off.png') %>',
-    starOn : '<%= asset_path('star-on.png') %>',
-    starHalf: '<%= asset_path('star-half.png') %>',
-    scoreName: 'post[rate]',
-    half: true,
-  });
-  </script>  
+  <%= render 'layouts/shim_star_form' %>  
   
   <div class="form-group row">
      <%= f.label :context, '口コミ内容 ', class:'col-md-3 col-form-label' %>
@@ -58,15 +49,7 @@
     <%= f.file_field :picture, accept: 'image/jpeg,image/png' %>
   </div>
   
-  <script type="text/javascript">
-  $('#micropost_picture').bind('change', function() {
-    var size_in_megabytes = this.files[0].size/1024/1024;
-    if (size_in_megabytes > 5) {
-      alert('最大5MBのファイルまで選択できます. それより小さいファイルを選択してください');
-    }
-  });
-</script>
-  
+  <%= render 'layouts/shim_picture' %>
   
   <div class="form-group row justify-content-end">
     <div class="col-md-9">

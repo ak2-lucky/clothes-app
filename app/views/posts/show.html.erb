@@ -1,0 +1,35 @@
+<div class = "post_feed">
+    <div id="post-<%= @post.id %>" data-post-id="<%= @post.id %>">
+    <span class="user">
+      <%= link_to @post.user do %>
+        投稿者情報 : <%= @post.user.username %> <%= @post.user.sex %> <%= @post.user.height %>
+      <% end %>
+    </span><br>
+    <span class="rate">
+      <div id="star-rate-<%= @post.id %>">評価 : </div>
+      <%= render 'layouts/shim_star_index', post: @post %>
+    </span>
+     <span class="user">
+      カテゴリー : <%= @post.sex %> <%= @post.brand %> <%= @post.category %><br>
+      商品名 : <%= @post.product_name %>
+    </span><br>
+    <span class="img">
+      <% if @post.picture.present? %>
+        商品画像 : <%= image_tag @post.picture ,width: '50px' %><br>
+      <% end %>
+    </span>
+
+     <span class="context">
+      評価内容 : <%= @post.context %>
+    </span><br>
+    <span class="timestamp">
+    <%= @post.created_at.strftime("%Y-%m-%d%H:%M") %>に投稿済み
+    </span><br>
+</div>
+</div>
+    
+<h4>コメント</h4>
+<div id="comments_area">
+  <%= render partial: 'comments/index', locals: { comments: @comments } %>
+</div>  
+  <%= render partial: 'comments/form', locals: { comment: @comment, post: @post } %>

@@ -14,7 +14,7 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
-      redirect_to root_url
+      redirect_to posts_path
     else
       render 'posts/new'
     end
@@ -22,12 +22,14 @@ class PostsController < ApplicationController
   
   def show
     @post = Post.find_by(id: params[:id])
+    @comment = Comment.new 
+    @comments = @post.comments
   end
   
   def destroy
-    @post.destroy
+    Post.find(params[:id]).destroy
     flash[:success] = "投稿を削除しました"
-    redirect_to request.referrer || root_url
+    redirect_to request.referrer 
   end
   
   private

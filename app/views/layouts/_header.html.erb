@@ -3,6 +3,7 @@
       <h3 class="masthead-brand">Choosing Clothes For You</h3>
       <ul class="nav nav-masthead justify-content-center">
         <% if user_signed_in? %>
+        <li class="nav-link"><%= link_to "SEARCH", posts_path %></li>
         <li class="nav-link"><%= link_to "MYPAGE", user_path(current_user.id) %></li>
         <li class="nav-link"><%= link_to "NEWPOST", new_post_path %></li>
           <li class="nav-link"><%= link_to "LOG OUT", destroy_user_session_path, method: :delete %></li>

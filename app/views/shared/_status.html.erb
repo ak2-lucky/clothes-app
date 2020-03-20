@@ -2,9 +2,8 @@
   <% if @user.posts.any? %>
   <a  class="no_link">
     <strong class="stat">
-     <%= @user.posts.count %>
+     投稿数:<%= @user.posts.count %>
     </strong>
-    投稿数
   </a>
   <% else %>
   投稿はまだありません
