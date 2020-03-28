@@ -23,7 +23,7 @@ end
 # マイクロポスト
 users = User.order(:created_at).take(6)
 50.times do |n|
-  context = Faker::Lorem.sentence(word_count: 10)
+  content = Faker::Lorem.sentence(word_count: 10)
   if n % 2 == 0
     brand = "UNIQLO"
   else
@@ -51,7 +51,7 @@ users = User.order(:created_at).take(6)
   picture = open("db/fixtures/パーカー.jpeg")
     
   users.each { |user| user.posts.create!(
-    context: context,
+    content: content,
     brand: brand,
     sex: sex,
     category: category,

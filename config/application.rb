@@ -12,6 +12,8 @@ module ClothesApp
     config.load_defaults 5.1
     config.i18n.default_locale = :ja
     config.time_zone = 'Tokyo'
+    Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+    
  
 
     # Settings in config/environments/* take precedence over those specified here.

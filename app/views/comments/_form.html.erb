@@ -1,6 +1,10 @@
-<%= form_with(model: [post, comment] ) do |form| %> 
+<%= form_with(model: [post, comment]) do |form| %> 
+<div id="error">
+    <%# Error Messages display here! %>
+</div>
+<%= render 'shared/error_messages', object: form.object %>
   <div>
-    <%= form.text_area :content %>
+    <%= form.text_area :content, placeholder:"コメントを記入する" %>
   </div>
   <div class="actions">
     <%= form.submit "コメントをする" %>

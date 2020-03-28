@@ -68,11 +68,6 @@ RSpec.describe User, type: :model do
       expect(user.errors[:password]).to include("が入力されていません。")
     end
     
-    it "パスワードは6文字以上128文字以下であること" do
-      user = build(:user, password: "a"*10)
-      expect(user).to be_valid
-    end 
-    
     it "パスワードは5文字以下では無効であること" do
       user = build(:user, password: "a"*5)
       user.valid?

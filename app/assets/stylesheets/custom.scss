@@ -159,7 +159,10 @@ body {
   padding: 0rem;
   margin: 0rem;
 }
-
+.alert-danger {
+  background-color: transparent;
+  border-color: transparent;
+}
 .field_with_errors {
   display: contents;
 }
@@ -177,6 +180,24 @@ body {
   text-align: left;
   margin: 5px 100px;
   padding: 0px 10px;
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+  .content {
+    display: block;
+    margin-left: 60px;
+    img {
+      display: block;
+      padding: 5px 0;
+      width:100px;
+    }
+  }
+  .timestamp {
+    color: gray;
+    display: block;
+    margin-left: 60px;
+  }
 }
 
 
@@ -199,29 +220,13 @@ body {
   background: #93c9ff;     /*背景の色を変える*/
 }
 
-.microposts {
+.posts {
   list-style: none;
   padding: 0;
   li {
     padding: 10px 0;
     border-top: 1px solid #e8e8e8;
   }
-  .user {
-    margin-top: 5em;
-    padding-top: 0;
-  }
-  .context {
-    display: block;
-    margin-left: 60px;
-    img {
-      display: block;
-      padding: 5px 0;
-      width:100px;
-    }
-  }
-  .timestamp {
-    color: gray;
-    display: block;
-    margin-left: 60px;
-  }
+  
 }
+

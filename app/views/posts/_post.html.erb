@@ -14,13 +14,11 @@
       商品名 : <%= post.product_name %>
     </span><br>
     <span class="img">
-      <% if post.picture.present? %>
-        商品画像 : <%= image_tag post.picture ,width: '50px' %><br>
-      <% end %>
+        商品画像 : <%= image_tag post.picture.url, width: '50px' if post.picture? %><br>
     </span>
 
-     <span class="context">
-      評価内容 : <%= post.context %>
+     <span class="content">
+      評価内容 : <%= post.content %>
     </span><br>
     <span class="timestamp">
     <%= post.created_at.strftime("%Y-%m-%d%H:%M") %>に投稿済み

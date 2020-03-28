@@ -29,13 +29,13 @@ class PostsController < ApplicationController
   def destroy
     Post.find(params[:id]).destroy
     flash[:success] = "投稿を削除しました"
-    redirect_to request.referrer 
+    redirect_back(fallback_location: root_path)
   end
   
   private
   
     def post_params
-      params.require(:post).permit(:context, :brand, :category, :rate, :sex, :picture, :product_name)
+      params.require(:post).permit(:content, :brand, :category, :rate, :sex, :picture, :product_name)
     end
   
 end

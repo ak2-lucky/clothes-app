@@ -1,10 +1,11 @@
 FactoryBot.define do
   factory :post do
-    context { "testText" }
-    brand { "Uniqlo" }
-    category { "パーカー" }
+    content { "testText" }
+    brand { "UNIQLO" }
+    category { "トップス" }
     rate { 4.5 }
-    sex { "mens" }
+    sex { "Mens" }
+    product_name { "スウェットプルオーバーパーカー" }
     association :user
   end
 end

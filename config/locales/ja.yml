@@ -25,7 +25,7 @@ ja:
       models:
         post:
           attributes:
-            context:
+            content:
               blank: "が入力されていません。"
               too_long: "は%{count}文字以下に設定して下さい。"
             brand:
@@ -40,6 +40,16 @@ ja:
               blank: "が入力されていません。"
             product_name:
               blank: "が入力されていません。"
+        comment:
+          attributes:
+            user_id:
+              blank: "が入力されていません。"
+            post_id:
+              blank: "が入力されていません。"
+            content:
+              blank: "が入力されていません。"
+              too_long: "は%{count}文字以下に設定して下さい。"
+            
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
         restrict_dependent_destroy:
@@ -48,7 +58,7 @@ ja:
     attributes:
       post:
         user_id: ユーザーid
-        context: 投稿内容
+        content: 投稿内容
         brand: ブランド
         category: カテゴリー
         rate: 評価
@@ -57,3 +67,7 @@ ja:
         updated_at: 更新日時
         product_name: 商品の名前
         picture: 商品画像
+      comment:
+        user_id: ユーザーid
+        post_id: 投稿のid
+        content: コメント
