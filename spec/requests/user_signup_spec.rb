@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "Signup", type: :request do
   
   describe "GET /users/sign_up" do
-    let(:user) { build(:user) }
+    let!(:testuser) { build(:user) }
     
     before do
       get  new_user_registration_path
@@ -16,12 +16,12 @@ RSpec.describe "Signup", type: :request do
       
       it "アカウント登録に成功したとき" do
         expect{
-          post user_registration_path, params: { user: { username:  "testuser",
-                                         email: "testuser@test.com",
-                                         sex: user.sex,
-                                         height: user.height,
-                                         password:              user.password,
-                                         password_confirmation: user.password_confirmation } }
+          post user_registration_path, params: { user: { username: testuser.username,
+                                         email: testuser.email,
+                                         sex: testuser.sex,
+                                         height: testuser.height,
+                                         password: testuser.password,
+                                         password_confirmation: testuser.password_confirmation } }
         }.to change(User, :count).by(1)
         expect(response).to have_http_status(302)
         expect(response.body).not_to include "error_explanation"
@@ -34,7 +34,8 @@ RSpec.describe "Signup", type: :request do
                                           email: "",
                                           sex: "",
                                           height: "",
-                                          password: ""} }
+                                          password: "",
+                                          assword_confirmation: "" } }
          }.not_to change(User, :count)                                  
         expect(response).to have_http_status(200)
         expect(response.body).to include "error_explanation"

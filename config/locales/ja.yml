@@ -29,15 +29,15 @@ ja:
               blank: "が入力されていません。"
               too_long: "は%{count}文字以下に設定して下さい。"
             brand:
-              blank: "が入力されていません。"
+              blank: "が選択されていません。"
             user_id:
               blank: "が入力されていません。"
             category:
-              blank: "が入力されていません。"
+              blank: "が選択されていません。"
             rate:
               blank: "が入力されていません。"
             sex:
-              blank: "が入力されていません。"
+              blank: "が選択されていません。"
             product_name:
               blank: "が入力されていません。"
         comment:
@@ -58,11 +58,11 @@ ja:
     attributes:
       post:
         user_id: ユーザーid
-        content: 投稿内容
+        content: レビュー内容
         brand: ブランド
         category: カテゴリー
         rate: 評価
-        sex: 性別
+        sex: 分類
         created_at: 登録日時
         updated_at: 更新日時
         product_name: 商品の名前

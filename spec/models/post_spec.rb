@@ -31,13 +31,13 @@ RSpec.describe Post, type: :model do
     it "ブランドがなければ無効な状態であること" do
       post = build(:post, brand: nil)
       post.valid?
-      expect(post.errors[:brand]).to include("が入力されていません。")
+      expect(post.errors[:brand]).to include("が選択されていません。")
     end
     
     it "カテゴリーがなければ無効な状態であること" do
       post = build(:post, category: nil)
       post.valid?
-      expect(post.errors[:category]).to include("が入力されていません。")
+      expect(post.errors[:category]).to include("が選択されていません。")
     end
     
     it "評価がなければ無効な状態であること" do
@@ -49,7 +49,7 @@ RSpec.describe Post, type: :model do
     it "カテゴリーがなければ無効な状態であること" do
       post = build(:post, sex: nil)
       post.valid?
-      expect(post.errors[:sex]).to include("が入力されていません。")
+      expect(post.errors[:sex]).to include("が選択されていません。")
     end
     
     it "商品の名前がなければ無効な状態であること" do

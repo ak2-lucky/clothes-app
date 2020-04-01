@@ -4,7 +4,7 @@
 </div>
 <%= render 'shared/error_messages', object: form.object %>
   <div>
-    <%= form.text_area :content, placeholder:"コメントを記入する" %>
+    <%= form.text_area :content, placeholder:"コメントを記入する" , id: "comment-textarea"%>
   </div>
   <div class="actions">
     <%= form.submit "コメントをする" %>

@@ -1,4 +1,4 @@
-<% provide(:title, @user.username) %>
+<% provide(:title, "User") %>
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
@@ -8,7 +8,7 @@
         <%= @user.height %>
       </h3>
       <% if @user == current_user %>
-        <%= link_to "プロフィール編集",  edit_user_registration_path(@user) %>
+        <%= link_to "プロフィール編集",  edit_user_registration_path %>
       <% end %>
     </section>
     <section class="stats">

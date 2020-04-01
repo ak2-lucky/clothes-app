@@ -53,13 +53,13 @@ RSpec.describe User, type: :model do
     it "身長がなければ無効な状態であること" do
       user = build(:user, height: nil)
       user.valid?
-      expect(user.errors[:height]).to include("が入力されていません。")
+      expect(user.errors[:height]).to include("が選択されていません。")
     end
     
     it "性別がなければ無効な状態であること" do
       user = build(:user, sex: nil)
       user.valid?
-      expect(user.errors[:sex]).to include("が入力されていません。")
+      expect(user.errors[:sex]).to include("が選択されていません。")
     end
     
     it "パスワードがなければ無効な状態であること" do

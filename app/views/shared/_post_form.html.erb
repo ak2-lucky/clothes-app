@@ -1,4 +1,6 @@
 <%= form_for(@post) do |f| %>
+  <h3> レビュー投稿ページ</h3>
+  <p>レビューを行う洋服に関しての情報を入力してください</p>
   <%= render 'shared/error_messages', object: f.object %>
   
   <div class="form-group row">
@@ -38,7 +40,7 @@
   <%= render 'layouts/shim_star_form' %>  
   
   <div class="form-group row">
-     <%= f.label :content, '口コミ内容 ', class:'col-md-3 col-form-label' %>
+     <%= f.label :content, class:'col-md-3 col-form-label' %>
     <div class="col-md-9">
       <%= f.text_area :content, class: "form-control", rows: "8",
         placeholder:'レビューを記入してみましょう' %>

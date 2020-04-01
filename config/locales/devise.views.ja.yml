@@ -5,9 +5,9 @@ ja:
         user:
           attributes:
             sex:
-              blank: "が入力されていません。"
+              blank: "が選択されていません。"
             height:
-              blank: "が入力されていません。"
+              blank: "が選択されていません。"
             username:
               taken: "は既に使用されています。"
               blank: "が入力されていません。"
