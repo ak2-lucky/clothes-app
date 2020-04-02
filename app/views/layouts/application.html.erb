@@ -11,10 +11,10 @@
     <div class="cover-container d-flex w-100 h-100 mx-auto flex-column">
       <%= render 'layouts/header' %>
       <div class="text-center">
-      <% flash.each do |message_type, message| %>
-      <div class="alert alert-<%= message_type %>"><%= message %></div>
-      <% end %>
-      <%= yield %>
+        <% unless current_page?(root_path) %>
+          <%= render 'layouts/flash_messages' %>
+        <% end %>
+        <%= yield %>
       </div>
       <%= render 'layouts/footer' %>
     </div>

@@ -17,12 +17,14 @@
   </aside>
   <div class="col-md-8">
     <% if @user.posts.any? %>
+      <div class ="user_posts">
       <h3>(<%= @user.posts.count %>)</h3>
-      <%= paginate @posts %>
+      <div class ="show_page_paginate"><%= paginate @posts %></div>
       <ul class ="user_post">
         <%= render @posts %>
       </ul>
-      <%= paginate @posts %>
+      <div class ="show_page_paginate"><%= paginate @posts %></div>
+      </div>
     <% end %>
   </div>
 </div>

@@ -8,6 +8,9 @@
 ul {
   list-style: none;
 }
+li {
+  list-style: none;
+}
 /* Links */
 a {
   color: white;
@@ -131,6 +134,10 @@ body {
   transform: translate(-50%, -50%);
 }
 
+.cover-head {
+  margin-bottom: 100px;
+}
+
 .cover .btn-lg {
   font-weight: 700;
 }
@@ -154,10 +161,20 @@ body {
 .notice {
   padding: 0rem;
   margin: 0rem;
+  background-color: transparent;
 }
 .alert {
   padding: 0rem;
   margin: 0rem;
+}
+.alert-notice {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.alert-success {
+  background-color: transparent;
+  border-color: transparent;
 }
 .alert-danger {
   background-color: transparent;
@@ -180,24 +197,11 @@ body {
   text-align: left;
   margin: 5px 100px;
   padding: 0px 10px;
-  .user {
-    margin-top: 5em;
-    padding-top: 0;
-  }
-  .content {
-    display: block;
-    margin-left: 60px;
-    img {
-      display: block;
-      padding: 5px 0;
-      width:100px;
+  overflow: hidden;
+  .img {
+      float: right;
+      margin: 5px 0px;
     }
-  }
-  .timestamp {
-    color: gray;
-    display: block;
-    margin-left: 60px;
-  }
 }
 
 
@@ -208,6 +212,10 @@ body {
 .pagination {
   margin: 10px 100px;
   text-align: center;
+}
+
+.show_page_paginate { 
+  margin-left: 40px;
 }
 
 .pagination>li>a {          
@@ -229,4 +237,24 @@ body {
   }
   
 }
+
+
+.content{
+  width: 60%;
+}
+
+.product_name {
+  width: 300px;
+}
+
+.post_product_name {
+  margin-left: 155px;
+}
+
+.user_info {
+  margin-top: 40px;
+  margin-right: 10px;
+}
+
+
 

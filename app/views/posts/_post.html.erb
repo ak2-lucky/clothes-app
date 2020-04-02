@@ -1,10 +1,16 @@
   <div class = "post_feed">
     <li id="post-<%= post.id %>" data-post-id="<%= post.id %>">
+    <span class="img">
+      <%if post.picture? %>
+        商品画像 : <%= image_tag post.picture.url, width: '70px'%>
+        <% end %>
+    </span>
     <span class="user">
       <%= link_to post.user do %>
         投稿者情報 : <%= post.user.username %> <%= post.user.sex %> <%= post.user.height %>
       <% end %>
     </span><br>
+    
     <span class="rate">
       <div id="star-rate-<%= post.id %>">評価 : </div>
       <%= render 'layouts/shim_star_index', post: post %>
@@ -13,10 +19,6 @@
       カテゴリー : <%= post.sex %> <%= post.brand %> <%= post.category %><br>
       商品名 : <%= post.product_name %>
     </span><br>
-    <span class="img">
-        商品画像 : <%= image_tag post.picture.url, width: '50px' if post.picture? %><br>
-    </span>
-
      <span class="content">
       評価内容 : <%= post.content %>
     </span><br>
@@ -26,6 +28,9 @@
     <% if post.user == current_user %>
       <%= link_to "投稿削除" , post, data: { confirm: "本当に削除してよろしいでしょうか?" }, method: :delete %>
     <% end %>
-    <%= link_to "コメント", post_path(post.id) %>
+    
+    <% if current_page?(posts_path) and user_signed_in? %>
+      <%= link_to "コメント", post_path(post.id) %>
+    <% end %>
     </li>
   </div>

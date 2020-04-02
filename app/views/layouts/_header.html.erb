@@ -1,18 +1,18 @@
 <header class="masthead">
-    <div class="inner">
-      <h3 class="masthead-brand">Choosing Clothes For You</h3>
-      <ul class="nav nav-masthead justify-content-center">
-        <% if user_signed_in? %>
-        <li class="nav-link"><%= link_to "SEARCH", posts_path %></li>
-        <li class="nav-link"><%= link_to "MYPAGE", user_path(current_user.id) %></li>
-        <li class="nav-link"><%= link_to "NEWPOST", new_post_path %></li>
-          <li class="nav-link"><%= link_to "LOG OUT", destroy_user_session_path, method: :delete %></li>
-        <% else %>
-          <li class="nav-link active"><%= link_to "HOME", root_path %></li>
-          <li class="nav-link"><%= link_to "ABOUT", about_path %></li>
-          <li class="nav-link"><%= link_to "SEARCH", posts_path %></li>
-          <li class="nav-link"><%= link_to "LOG IN", new_user_session_path %></li>
-        <% end %>
-      </ul>
-    </div>
-  </header>
+  <div class="inner">
+    <h3 class="masthead-brand">Choosing Clothes For You</h3>
+    <ul class="nav nav-masthead justify-content-center">
+      <% if user_signed_in? %>
+        <li class="nav-link <%= 'active' if current_page?(posts_path) %>"><%= link_to "SEARCH", posts_path %></li>
+        <li class="nav-link <%= 'active' if current_page?(user_path(current_user.id)) %>"><%= link_to "MYPAGE", user_path(current_user.id) %></li>
+        <li class="nav-link <%= 'active' if current_page?(new_post_path) %>"><%= link_to "NEWPOST", new_post_path %></li>
+        <li class="nav-link"><%= link_to "LOG OUT", destroy_user_session_path, method: :delete %></li>
+      <% else %>
+        <li class="nav-link <%= 'active' if current_page?(root_path) %>"><%= link_to "HOME", root_path %></li>
+        <li class="nav-link <%= 'active' if current_page?(about_path) %>"><%= link_to "ABOUT", about_path %></li>
+        <li class="nav-link <%= 'active' if current_page?(posts_path) %>"><%= link_to "SEARCH", posts_path %></li>
+        <li class="nav-link <%= 'active' if current_page?(new_user_session_path) %>"><%= link_to "LOG IN", new_user_session_path %></li>
+      <% end %>
+    </ul>
+  </div>
+</header>
