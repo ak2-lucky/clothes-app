@@ -26,6 +26,7 @@ gem 'ransack'
 gem 'faker'
 gem 'kaminari'
 gem 'ajax_error_renderer'
+gem 'font-awesome-sass', '~> 5.12.0'
 
 # gem 'capistrano-rails', group: :development
 

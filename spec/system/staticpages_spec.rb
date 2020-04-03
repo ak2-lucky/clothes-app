@@ -43,10 +43,10 @@ let!(:user) { create(:user) }
       end
       
       it "ヘッダーのリンクが正しいこと" do
-        expect(page).to have_link "ACTION", href: notifications_path
+        expect(page).to have_link "NOTICE", href: notifications_path
         expect(page).to have_link "SEARCH", href: posts_path
         expect(page).to have_link "MYPAGE", href: user_path(user)
-        expect(page).to have_link "NEWPOST", href: new_post_path
+        expect(page).to have_link "NEW POST", href: new_post_path
         expect(page).to have_link "LOG OUT", href: destroy_user_session_path
       end
     end

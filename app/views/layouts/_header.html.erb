@@ -2,17 +2,65 @@
   <div class="inner">
     <h3 class="masthead-brand">Choosing Clothes For You</h3>
     <ul class="nav nav-masthead justify-content-center">
+      <li class="nav-link <%= 'active' if current_page?(posts_path) %>">
+          <%= link_to  posts_path do %>
+            <i class="fa fa-search", aria-hidden="true" style="font-size: 1.5em;"></i>
+            <br><span>SEARCH</span>
+          <% end %>
+      </li>
       <% if user_signed_in? %>
-        <li class="nav-link <%= 'active' if current_page?(notifications_path) %>"><%= link_to "ACTION", notifications_path %></li>
-        <li class="nav-link <%= 'active' if current_page?(posts_path) %>"><%= link_to "SEARCH", posts_path %></li>
-        <li class="nav-link <%= 'active' if current_page?(user_path(current_user.id)) %>"><%= link_to "MYPAGE", user_path(current_user.id) %></li>
-        <li class="nav-link <%= 'active' if current_page?(new_post_path) %>"><%= link_to "NEWPOST", new_post_path %></li>
-        <li class="nav-link"><%= link_to "LOG OUT", destroy_user_session_path, method: :delete %></li>
+        <li class="nav-link <%= 'active' if current_page?(notifications_path) %>">
+          <%= link_to notifications_path do %>
+            <% if unchecked_notifications.any? %>
+                 <div class "fontawesome">
+                  <i class="far fa-bell n-bell" aria-hidden="true" style="font-size: 1.5em;"></i> 
+                  <i class="fa fa-circle n-circle" aria-hidden="true"></i>
+              </div>
+                  <span>NOTICE</span>
+                
+              <% else %>
+                <i class="far fa-bell" aria-hidden="true"  style="font-size: 1.5em;"></i> 
+                <br><span>NOTICE</span>
+              <% end %>
+          <% end %>
+        </li>
+        <li class="nav-link <%= 'active' if current_page?(user_path(current_user.id)) %>">
+          <%= link_to  user_path(current_user.id) do %>
+            <i class="fa fa-user-circle" aria-hidden="true" style="font-size: 1.5em;"></i>
+            <br><span>MYPAGE</span>
+          <% end %>
+        </li>
+        <li class="nav-link <%= 'active' if current_page?(new_post_path) %>">
+          <%= link_to new_post_path do %>
+            <i class="fa fa-edit" aria-hidden="true" style="font-size: 1.5em;"></i>
+            <br><span>NEW POST</span>
+            <% end %>
+          </li>
+        <li class="nav-link">
+          <%= link_to destroy_user_session_path, method: :delete do %>
+            <i class="fa fa-sign-out-alt" aria-hidden="true" style="font-size: 1.5em;"></i>
+            <br><span>LOG OUT</span>
+          <% end %>
+        </li>
       <% else %>
-        <li class="nav-link <%= 'active' if current_page?(root_path) %>"><%= link_to "HOME", root_path %></li>
-        <li class="nav-link <%= 'active' if current_page?(about_path) %>"><%= link_to "ABOUT", about_path %></li>
-        <li class="nav-link <%= 'active' if current_page?(posts_path) %>"><%= link_to "SEARCH", posts_path %></li>
-        <li class="nav-link <%= 'active' if current_page?(new_user_session_path) %>"><%= link_to "LOG IN", new_user_session_path %></li>
+        <li class="nav-link <%= 'active' if current_page?(root_path) %>">
+          <%= link_to root_path do %>
+            <i class="fa fa-home" aria-hidden="true" style="font-size: 1.5em;"></i>
+            <br><span>HOME</span>
+          <% end %>
+        </li>
+        <li class="nav-link <%= 'active' if current_page?(about_path) %>">
+          <%= link_to about_path do %>
+            <i class="fa fa-users" aria-hidden="true" style="font-size: 1.5em;"></i>
+            <br><span>ABOUT US</span>
+          <% end %>
+        </li>
+        <li class="nav-link <%= 'active' if current_page?(new_user_session_path) %>">
+          <%= link_to new_user_session_path do %>
+            <i class="fa fa-sign-in-alt" aria-hidden="true" style="font-size: 1.5em;"></i>
+            <br><span>LOG IN</span>
+          <% end %>
+        </li>
       <% end %>
     </ul>
   </div>

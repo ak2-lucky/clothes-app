@@ -1,4 +1,6 @@
 @import 'bootstrap';
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
 /*
  * Globals
  */
@@ -65,12 +67,14 @@ body {
  * Header
  */
 .masthead {
-  padding: 0 3rem;
+  
+  padding: 0 2rem;
   border-bottom: 1px solid #eaeaea;
 }
 
 .masthead-brand {
-  margin-bottom: 0;
+  margin-bottom: 0px;
+  margin-top: 12px;
 }
 
 .nav-masthead .nav-link {
@@ -102,6 +106,10 @@ body {
   .nav-masthead {
     float: right;
   }
+}
+
+.nav-link {
+ text-align: center;
 }
 
 
@@ -268,5 +276,22 @@ body {
 .notifications_time {
   text-align: right;
 }
+
+
+
+.fontawesome {
+  position: absolute;
+}
+.n-circle {
+  position: relative;
+  right: 12px;
+  top: 5px;
+  color: #efa04c;
+}
+.n-bell {
+  margin-left: 26px;
+}
+
+
 
 
