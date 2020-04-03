@@ -11,9 +11,8 @@ RSpec.describe Post, type: :model do
     end
      
     it "関連付けしているユーザーの情報がなければ無効な状態であること" do
-      post = build(:post, user_id: nil)
-      post.valid?
-      expect(post.errors[:user_id]).to include("が入力されていません。")
+      post.user_id = nil
+      expect(post).not_to be_valid
     end
     
     it "投稿内容がなければ無効な状態であること" do

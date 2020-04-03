@@ -202,6 +202,10 @@ body {
       float: right;
       margin: 5px 0px;
     }
+  .timestamp {
+    display: inline;
+    text-align: right;
+  }
 }
 
 
@@ -256,5 +260,13 @@ body {
   margin-right: 10px;
 }
 
+.notification {
+  border-bottom: 2px solid white;
+  margin : 10px 200px;
+}
+
+.notifications_time {
+  text-align: right;
+}
 
 

@@ -10,15 +10,13 @@ RSpec.describe Comment, type: :model do
     end
     
     it "関連付けしているユーザーの情報がなければ無効な状態であること" do
-      comment = build(:comment, user_id: nil)
-      comment.valid?
-      expect(comment.errors[:user_id]).to include("が入力されていません。")
+      comment.user_id = nil
+      expect(comment).not_to be_valid
     end
     
     it "関連している投稿の情報がなければ無効な状態であること" do
-      comment = build(:comment, post_id: nil)
-      comment.valid?
-      expect(comment.errors[:post_id]).to include("が入力されていません。")
+      comment.post_id = nil
+      expect(comment).not_to be_valid
     end
     
     it "コメントがなければ無効な状態であること" do

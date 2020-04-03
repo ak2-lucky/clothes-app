@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Posts", type: :system do
+RSpec.describe "Comments", type: :system do
   include ApplicationHelper
   let!(:user) { create(:user) }
   let!(:other_user) { create(:user) }

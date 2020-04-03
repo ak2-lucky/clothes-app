@@ -30,8 +30,8 @@ ja:
               too_long: "は%{count}文字以下に設定して下さい。"
             brand:
               blank: "が選択されていません。"
-            user_id:
-              blank: "が入力されていません。"
+            #user_id:
+            #  blank: "が入力されていません。"
             category:
               blank: "が選択されていません。"
             rate:
@@ -42,10 +42,10 @@ ja:
               blank: "が入力されていません。"
         comment:
           attributes:
-            user_id:
-              blank: "が入力されていません。"
-            post_id:
-              blank: "が入力されていません。"
+            #user_id:
+            #  blank: "が入力されていません。"
+            #post_id:
+            #  blank: "が入力されていません。"
             content:
               blank: "が入力されていません。"
               too_long: "は%{count}文字以下に設定して下さい。"
@@ -71,3 +71,9 @@ ja:
         user_id: ユーザーid
         post_id: 投稿のid
         content: コメント
+      notification:
+        visitor_id: 通知を送ったユーザーid
+        visited_id: 通知を送られたユーザーのid
+        post_id: 通知された投稿のid
+        comment_id: 投稿へのコメントのid
+        checked: ユーザーが通知を確認したかどうか

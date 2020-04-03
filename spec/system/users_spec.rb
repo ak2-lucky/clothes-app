@@ -124,7 +124,7 @@ RSpec.describe "Users", type: :system do
         expect(page).to have_content post_with_user.content
         expect(page).to have_content post_with_user.product_name
         expect(page).to have_link "投稿削除", href: post_path(post_with_user)
-        expect(page).not_to have_link "コメント", href: post_path(post_with_user)
+        expect(page).to have_link "コメント", href: post_path(post_with_user)
       end
       #画像投稿のテスト
     end
