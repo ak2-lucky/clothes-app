@@ -1,42 +1,8 @@
 @import 'bootstrap';
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
-/*
- * Globals
- */
+
  
- 
-
-ul {
-  list-style: none;
-}
-li {
-  list-style: none;
-}
-/* Links */
-a {
-  color: white;
-}
-
-.btn a {
-  color: orange;
-}
-
-.btn {
-  background-color: Transparent;
-}
-
-.btn:hover {
-  background-color: orange;
-}
-
-/* Custom default button */
-.btn-secondary,
-.btn-secondary:hover,
-.btn-secondary:focus {
-  border: .05rem solid #fff;
-}
-
 
 /*
  * Base structure
@@ -58,10 +24,7 @@ body {
   color: #fff;
   text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
   box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
-}
-
-
-
+} 
 
 /*
  * Header
@@ -112,6 +75,18 @@ body {
  text-align: center;
 }
 
+/*
+ * Footer
+ */
+ 
+ footer {
+  border-top: 1px solid #eaeaea;
+  color: #777;
+}
+.mastfoot {
+  color: rgba(255, 255, 255, .5);
+  text-align: center;
+}
 
 /*
  * Cover
@@ -131,8 +106,6 @@ body {
   background-size:  cover; 
 }
 
-
-
 .cover-content {
   width:40rem;
   position: absolute;
@@ -150,20 +123,34 @@ body {
   font-weight: 700;
 }
 
-
-
-
-/*
- * Footer
- */
- 
- footer {
-  border-top: 1px solid #eaeaea;
-  color: #777;
+ul {
+  list-style: none;
 }
-.mastfoot {
-  color: rgba(255, 255, 255, .5);
-  text-align: center;
+li {
+  list-style: none;
+}
+
+a {
+  color: white;
+}
+
+.btn a {
+  color: orange;
+}
+
+.btn {
+  background-color: Transparent;
+}
+
+.btn:hover {
+  background-color: orange;
+}
+
+/* Custom default button */
+.btn-secondary,
+.btn-secondary:hover,
+.btn-secondary:focus {
+  border: .05rem solid #fff;
 }
 
 .notice {

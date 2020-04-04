@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'staticpages#home'
-  get  '/about',             to: 'staticpages#about'
+  get  '/about', to: 'staticpages#about'
   devise_for :users, controllers: { registrations: 'users/registrations' }
   resources :users,          only: [:show]
   resources :posts,          only: [:new, :index, :show, :create, :destroy] do

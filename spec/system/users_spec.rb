@@ -1,22 +1,24 @@
 require 'rails_helper'
 
-
 RSpec.describe "Users", type: :system do
+  def extract_confirmation_url(mail)
+    body = mail.body.encoded
+    body[/https[^"]+/]
+  end
+
   include ApplicationHelper
   let!(:user) { create(:user) }
   let!(:post_with_user) { create(:post, user: user) }
 
-  
   describe "ユーザー登録" do
     before do
       visit new_user_registration_path
     end
-    
+
     it "正しいタイトルが表示されること" do
       expect(page).to have_title full_title("Sign up")
     end
-    
-    
+
     it "有効な情報ならユーザー登録できること" do
       fill_in "ユーザーネーム", with: "testuser1"
       fill_in "メールアドレス", with: "test1@example.com"
@@ -28,7 +30,7 @@ RSpec.describe "Users", type: :system do
       expect(page).to have_content "アカウント登録が完了しました。"
       expect(page).to have_current_path posts_path
     end
-    
+
     it "無効な情報ならユーザー登録ができずエラーメッセージが表示されること" do
       fill_in "ユーザーネーム", with: ""
       fill_in "メールアドレス", with: ""
@@ -43,26 +45,26 @@ RSpec.describe "Users", type: :system do
       expect(page).to have_content "パスワードが入力されていません。"
     end
   end
-  
+
   describe "ユーザーログイン" do
     before do
       visit new_user_session_path
     end
-    
-    it "表示されているリンクが正しいこと" do
-      click_link "アカウント登録" 
+
+    it "表示されているアカウント登録のリンクが正しいこと" do
+      click_link "アカウント登録"
       expect(page).to have_current_path new_user_registration_path
     end
-    
-     it "表示されているリンクが正しいこと" do
-      click_link "パスワードを忘れた方はこちらへ" 
+
+    it "表示されているパスワードリセットへのリンクが正しいこと" do
+      click_link "パスワードを忘れた方はこちらへ"
       expect(page).to have_current_path new_user_password_path
     end
- 
+
     it "正しいタイトルが表示されること" do
       expect(page).to have_title full_title("Login")
     end
-    
+
     it "有効な情報ならログインできること" do
       fill_in "メールアドレス", with: user.email
       fill_in "パスワード", with: user.password
@@ -70,7 +72,7 @@ RSpec.describe "Users", type: :system do
       expect(page).to have_content "ログインしました。"
       expect(page).to have_current_path posts_path
     end
-    
+
     it "無効な情報ならログインができずエラーメッセージが表示されること" do
       fill_in "メールアドレス", with: ""
       fill_in "パスワード", with: ""
@@ -79,30 +81,30 @@ RSpec.describe "Users", type: :system do
       expect(page).to have_content "メールアドレスまたはパスワードが違います。"
     end
   end
-  
+
   describe "ログアウト" do
     before do
       sign_in user
       visit posts_path
     end
-    
+
     it "表示されているリンクが正しいこと" do
-      click_link "LOG OUT" 
+      click_link "LOG OUT"
       expect(page).to have_content "ログアウトしました。"
       expect(page).to have_current_path root_path
     end
   end
-  
+
   describe "ユーザー情報表示" do
     before do
       sign_in user
       visit user_path(user)
     end
-    
+
     it "正しいタイトルが表示されていること" do
       expect(page).to have_title full_title("User")
     end
-    
+
     it "ユーザーの情報と編集へのリンクが表示されていること" do
       within ".user_info" do
         expect(page).to have_current_path user_path(user)
@@ -112,7 +114,7 @@ RSpec.describe "Users", type: :system do
         expect(page).to have_link "プロフィール編集", href: edit_user_registration_path
       end
     end
-    
+
     it "ユーザーが投稿したレビューの情報が表示されていること" do
       within ".post_feed" do
         expect(page).to have_content user.username
@@ -126,36 +128,36 @@ RSpec.describe "Users", type: :system do
         expect(page).to have_link "投稿削除", href: post_path(post_with_user)
         expect(page).to have_link "コメント", href: post_path(post_with_user)
       end
-      #画像投稿のテスト
+      # 画像投稿のテスト
     end
   end
-    
+
   describe "ユーザー情報編集" do
     before do
       sign_in user
       visit user_path(user)
       click_link "プロフィール編集"
     end
-      
+
     it "正しいタイトルが表示されていること" do
       expect(page).to have_title full_title("User Edit")
     end
-    
+
     it "正しくページ遷移ができていること" do
       expect(page).to have_current_path edit_user_registration_path
     end
-    
+
     it "リンクが正しいこと" do
       click_link "戻る"
       expect(page).to have_current_path user_path(user)
     end
-    
+
     it "ボタンが正しいこと" do
       click_button "アカウント削除"
       expect(page).to have_content "アカウントを削除しました。またのご利用をお待ちしております。"
       expect(page).to have_current_path root_path
     end
-    
+
     it "有効な情報なら変更できること(パスワードは空白でもOK)" do
       fill_in "ユーザーネーム", with: "testusername2"
       fill_in "メールアドレス", with: "test2@test2.com"
@@ -166,7 +168,7 @@ RSpec.describe "Users", type: :system do
       expect(page).to have_content "アカウント情報を変更しました。"
       expect(page).to have_current_path posts_path
     end
-    
+
     it "無効な情報では変更できないこと" do
       fill_in "ユーザーネーム", with: ""
       fill_in "メールアドレス", with: ""
@@ -180,27 +182,36 @@ RSpec.describe "Users", type: :system do
       expect(page).to have_content "メールアドレスが入力されていません。"
     end
   end
-  
+
   describe "パスワードリセット" do
     before do
       visit new_user_session_path
       click_link "パスワードを忘れた方はこちらへ"
     end
-    
+
     it "正しいタイトルが表示されていること" do
       expect(page).to have_title full_title("Password Reset")
     end
-    
+
     it "表示されているリンクが正しいこと" do
       expect(page).to have_link "ログイン", href: new_user_session_path
       expect(page).to have_link "アカウント登録", href: new_user_registration_path
     end
-    
-    #メール送信のテストをあとで追加
-    #it "メールが適切に送られていること" do
-    #  expect(page).to have_current_path new_user_password_path
-    #  
-    # end
+
+    it "メールが適切に送られていること" do
+      fill_in "メールアドレス", with: user.email
+      expect { click_button "パスワード再設定のメールを送信する" }.to change { Devise.mailer.deliveries.size }.by(1)
+      expect(page).to have_current_path new_user_session_path
+      expect(page).to have_content "パスワードの再設定について数分以内にメールでご連絡いたします。"
+      mail = Devise.mailer.deliveries.last
+      url = extract_confirmation_url(mail)
+      visit url
+      expect(page).to have_title full_title("Password Edit")
+      fill_in "新しいパスワード", with: "testtest"
+      fill_in "新しいパスワード再入力", with: "testtest"
+      click_button "パスワード再設定"
+      expect(page).to have_current_path posts_path
+      expect(page).to have_content "パスワードが正しく変更されました。"
+    end
   end
-  
 end

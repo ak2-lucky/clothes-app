@@ -3,25 +3,24 @@
     <h3 class="masthead-brand">Choosing Clothes For You</h3>
     <ul class="nav nav-masthead justify-content-center">
       <li class="nav-link <%= 'active' if current_page?(posts_path) %>">
-          <%= link_to  posts_path do %>
-            <i class="fa fa-search", aria-hidden="true" style="font-size: 1.5em;"></i>
-            <br><span>SEARCH</span>
-          <% end %>
+        <%= link_to  posts_path do %>
+          <i class="fa fa-search", aria-hidden="true" style="font-size: 1.5em;"></i>
+          <br><span>SEARCH</span>
+        <% end %>
       </li>
       <% if user_signed_in? %>
         <li class="nav-link <%= 'active' if current_page?(notifications_path) %>">
           <%= link_to notifications_path do %>
             <% if unchecked_notifications.any? %>
-                 <div class "fontawesome">
-                  <i class="far fa-bell n-bell" aria-hidden="true" style="font-size: 1.5em;"></i> 
-                  <i class="fa fa-circle n-circle" aria-hidden="true"></i>
+              <div class "fontawesome">
+                <i class="far fa-bell n-bell" aria-hidden="true" style="font-size: 1.5em;"></i> 
+                <i class="fa fa-circle n-circle" aria-hidden="true"></i>
               </div>
-                  <span>NOTICE</span>
-                
-              <% else %>
-                <i class="far fa-bell" aria-hidden="true"  style="font-size: 1.5em;"></i> 
-                <br><span>NOTICE</span>
-              <% end %>
+              <span>NOTICE</span>
+            <% else %>
+              <i class="far fa-bell" aria-hidden="true"  style="font-size: 1.5em;"></i> 
+              <br><span>NOTICE</span>
+            <% end %>
           <% end %>
         </li>
         <li class="nav-link <%= 'active' if current_page?(user_path(current_user.id)) %>">
