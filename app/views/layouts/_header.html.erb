@@ -9,7 +9,7 @@
         <% end %>
       </li>
       <% if user_signed_in? %>
-        <li class="nav-link <%= 'active' if current_page?(notifications_path) %>">
+        <li class="nav-link <%= active_page(notifications_path) %>">
           <%= link_to notifications_path do %>
             <% if unchecked_notifications.any? %>
               <div class "fontawesome">
@@ -23,13 +23,13 @@
             <% end %>
           <% end %>
         </li>
-        <li class="nav-link <%= 'active' if current_page?(user_path(current_user.id)) %>">
+        <li class="nav-link <%= active_page(user_path(current_user.id)) %>">
           <%= link_to  user_path(current_user.id) do %>
             <i class="fa fa-user-circle" aria-hidden="true" style="font-size: 1.5em;"></i>
             <br><span>MYPAGE</span>
           <% end %>
         </li>
-        <li class="nav-link <%= 'active' if current_page?(new_post_path) %>">
+        <li class="nav-link <%= active_page(new_post_path) %>">
           <%= link_to new_post_path do %>
             <i class="fa fa-edit" aria-hidden="true" style="font-size: 1.5em;"></i>
             <br><span>NEW POST</span>
@@ -42,19 +42,19 @@
           <% end %>
         </li>
       <% else %>
-        <li class="nav-link <%= 'active' if current_page?(root_path) %>">
+        <li class="nav-link <%= active_page(root_path) %>">
           <%= link_to root_path do %>
             <i class="fa fa-home" aria-hidden="true" style="font-size: 1.5em;"></i>
             <br><span>HOME</span>
           <% end %>
         </li>
-        <li class="nav-link <%= 'active' if current_page?(about_path) %>">
+        <li class="nav-link <%= active_page(about_path) %>">
           <%= link_to about_path do %>
             <i class="fa fa-users" aria-hidden="true" style="font-size: 1.5em;"></i>
             <br><span>ABOUT US</span>
           <% end %>
         </li>
-        <li class="nav-link <%= 'active' if current_page?(new_user_session_path) %>">
+        <li class="nav-link <%= active_page(new_user_session_path) %>">
           <%= link_to new_user_session_path do %>
             <i class="fa fa-sign-in-alt" aria-hidden="true" style="font-size: 1.5em;"></i>
             <br><span>LOG IN</span>
