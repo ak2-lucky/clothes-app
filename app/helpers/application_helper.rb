@@ -7,11 +7,10 @@ module ApplicationHelper
       page_title + " | " + base_title
     end
   end
-  
-  
+
   def active_page(path_name)
-    if  current_page?(path_name)
-      return "active"
+    if current_page?(path_name)
+      "active"
     end
   end
 end
