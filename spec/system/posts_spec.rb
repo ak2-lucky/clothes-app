@@ -77,8 +77,6 @@ RSpec.describe "Posts", type: :system do
         expect(page).to have_content post_with_user.brand
         expect(page).to have_content post_with_user.category
         expect(page).to have_content post_with_user.content
-        # rateが表示されている事を確認する
-        # expect(find('score', visible: false).value).to eq 4.5
         expect(page).to have_link "コメント", href: post_path(post_with_user)
         expect(page).to have_content other_post_with_user.sex
         expect(page).to have_content other_post_with_user.brand
@@ -96,8 +94,6 @@ RSpec.describe "Posts", type: :system do
         expect(page).to have_content post_with_user.brand
         expect(page).to have_content post_with_user.category
         expect(page).to have_content post_with_user.content
-        # rateが表示されている事を確認する
-        # expect(find('score', visible: false).value).to eq 4.5
         expect(page).to have_link "コメント", href: post_path(post_with_user)
         expect(page).not_to have_content other_post_with_user.product_name
         expect(page).not_to have_content other_post_with_user.content
@@ -136,8 +132,6 @@ RSpec.describe "Posts", type: :system do
         expect(page).to have_content post_with_user.brand
         expect(page).to have_content post_with_user.category
         expect(page).to have_content post_with_user.content
-        # rateが表示されている事,画像が確認する
-        # expect(find('score', visible: false).value).to eq 4.5
       end
     end
   end

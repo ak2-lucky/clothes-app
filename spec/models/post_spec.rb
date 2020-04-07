@@ -2,8 +2,10 @@ require 'rails_helper'
 
 RSpec.describe Post, type: :model do
   let!(:post) { create(:post) }
-  let(:image_path) { File.join(Rails.root, 'spec/fixtures/sample1.jpg') }
-  let(:image) { Rack::Test::UploadedFile.new(image_path) }
+  let(:image_path1) { File.join(Rails.root, 'spec/fixtures/sample1.jpg') }
+  let(:image_path2) { File.join(Rails.root, 'spec/fixtures/sample3.jpeg') }
+  let(:image_with_jpg) { Rack::Test::UploadedFile.new(image_path1) }
+  let(:image_with_jpeg) { Rack::Test::UploadedFile.new(image_path2) }
 
   context "カラムのバリデーション" do
     it "関連付けしているユーザーの情報、評価レビュー、ブランド、カテゴリー、性別、評価があれば有効であること" do
@@ -57,10 +59,15 @@ RSpec.describe Post, type: :model do
       expect(post.errors[:product_name]).to include("が入力されていません。")
     end
 
-    it "ファイルの種類はjpegかpngであること" do
-      post = build(:post, picture: image)
+    it "ファイルの拡張子が許可されていない場合、無効な状態であること" do
+      post = build(:post, picture: image_with_jpg)
       post.valid?
       expect(post.errors[:picture]).to include("\"jpg\"ファイルのアップロードは許可されていません。アップロードできるファイルタイプ: jpeg, png")
+    end
+    
+    it "ファイルの種類はjpegかpngであること" do
+      post = create(:post, picture: image_with_jpeg)
+      expect(post).to be_valid
     end
   end
 end
