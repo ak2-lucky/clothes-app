@@ -11,9 +11,7 @@
     <div class="cover-container d-flex w-100 h-100 mx-auto flex-column">
       <%= render 'layouts/header' %>
       <div class="text-center">
-        <% unless current_page?(root_path) %>
-          <%= render 'layouts/flash_messages' %>
-        <% end %>
+        <%= render 'layouts/flash_messages' unless current_page?(root_path) %>
         <%= yield %>
       </div>
       <%= render 'layouts/footer' %>

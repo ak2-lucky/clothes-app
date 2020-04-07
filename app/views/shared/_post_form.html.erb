@@ -2,49 +2,39 @@
   <h3> レビュー投稿ページ</h3>
   <p>レビューを行う洋服に関しての情報を入力してください</p>
   <%= render 'shared/error_messages', object: f.object %>
-  
   <div class="form-group">
   　<%= f.label :sex, class:'col-md-3 col-form-label' %>
     <%= f.select :sex, [["Mens", "Mens"], ["Womens", "Womens"]],:prompt => "選択してください", class: "form-control" %>
-    
   </div>
-  
   <div class="form-group">
   　<%= f.label :brand, class:'col-md-3 col-form-label' %>
     <%= f.select :brand, [["UNIQLO", "UNIQLO"], ["GU", "GU"]],:prompt => "選択してください", class: "form-control" %>
   </div>
-  
   <div class="form-group">
   　<%= f.label :category, class:'col-md-3 col-form-label' %>
     <%= f.select :category, [["アウター", "アウター"], ["トップス", "トップス"],
     ["ボトムス", "ボトムス"], ["アクセサリー", "アクセサリー"], ["シューズ", "シューズ"]],:prompt => "選択してください", class: "form-control" %>
   </div>
-  
   <div class="form-group">
   　<%= f.label :product_name, class:'col-md-3 col-form-label post_product_name' %>
     <%= f.text_field :product_name, class: "product_name" %>
   </div>
-  
   <div class="form-group" id="star">
     <%= f.label :rate, class:'col-md-3 col-form-label' %>
     <%= f.hidden_field :rate, id: :post_star %>
   </div>
-  
   <%= render 'layouts/shim_star_form' %>  
-  
   <div class="form-group">
      <%= f.label :content, class:'col-md-3 col-form-label' %><br>
-      <%= f.text_area :content, class: "content", rows: "8",
-        placeholder:'レビューを記入してみましょう' %>
+     <%= f.text_area :content, class: "content", rows: "8", placeholder:'レビューを記入してみましょう' %>
   </div>
   <span>(商品の画像は任意でアップロードが可能です)</span><br><br>
   <div class="picture">
-    <%= f.file_field :picture, accept: 'image/jpeg,image/png' %>
+    <%= f.file_field :picture, accept: 'image/jpeg, image/png' %>
   </div>
-  
   <%= render 'layouts/shim_picture' %>
   <br>
   <div class="form-group justify-content-end">
-      <%= f.submit '投稿する', class:"btn btn-success" %>
+    <%= f.submit '投稿する', class:"btn btn-success" %>
   </div>
 <% end %>

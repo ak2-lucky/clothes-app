@@ -11,14 +11,14 @@
   </div>
   <div class="form-group">
     <%= f.label :category_eq, 'カテゴリー', class:'col-md-3 col-form-label' %>  
-   <%= f.select :category_eq, ['アウター', 'トップス', 'ボトムス', 'アクセサリー','シューズ'] ,{include_blank: '指定なし' } %>
+    <%= f.select :category_eq, ['アウター', 'トップス', 'ボトムス', 'アクセサリー','シューズ'] ,{include_blank: '指定なし' } %>
   </div>
   <%= f.submit value: "検索" %>    
 <% end %>
 <ul>
-<%= paginate @posts %>
-  <% @posts.each do |post| %>
-  <%= render post %>
-  <% end %>
-<%= paginate @posts %>
+  <%= paginate @posts %>
+    <% @posts.each do |post| %>
+      <%= render post %>
+    <% end %>
+  <%= paginate @posts %>
 </ul>

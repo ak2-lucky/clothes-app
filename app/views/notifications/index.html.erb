@@ -1,6 +1,6 @@
 <% provide(:title, 'Notifications') %>
 <!--/ 自分の投稿に対するコメントは通知に表示しない-->
-<% notifications = @notifications.where.not(visitor_id: current_user.id) %>
+<% notifications = @notifications.where.not(visitor_id: current_user.id).includes([:visitor, :visited, :post]) %>
 <% if notifications.exists? %>
   <%= render notifications %>
 <% else %>
