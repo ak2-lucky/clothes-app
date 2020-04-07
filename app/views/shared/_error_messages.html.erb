@@ -1,8 +1,11 @@
 <% if object.errors.any? %>
   <div id="error_explanation">
-    <div class="alert alert-danger">
-      The form contains <%= pluralize(object.errors.count, "error") %>.
-    </div>
+    <h3>
+      <%= I18n.t("errors.messages.not_saved",
+                 count: object.errors.count,
+                 resource: object.class.model_name.human.downcase)
+       %>
+    </h3>
     <ul>
     <% object.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>

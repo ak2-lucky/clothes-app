@@ -71,3 +71,6 @@ ja:
         post_id: 通知された投稿のid
         comment_id: 投稿へのコメントのid
         checked: ユーザーが通知を確認したかどうか
+    models:
+      post: 投稿
+      comment: コメント
