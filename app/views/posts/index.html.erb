@@ -1,26 +1,20 @@
 <% provide(:title, 'Post Index') %>
 <h1>検索</h1>
 <%= search_form_for @q do |f| %>
-
   <div class="form-group">
     <%= f.label :sex_eq, '性別', class:'col-md-3 col-form-label' %>  
-    <%= f.collection_select :sex_eq, Post.select(:sex).distinct, :sex, :sex, include_blank: '選択してください' %>
+    <%= f.collection_select :sex_eq, Post.select(:sex).distinct, :sex, :sex, include_blank: '指定なし' %>
   </div>
-  
   <div class="form-group">
     <%= f.label :brand_eq, 'ブランド', class:'col-md-3 col-form-label' %>  
-    <%= f.collection_select :brand_eq, Post.select(:brand).distinct, :brand, :brand, include_blank: '選択してください' %>
+    <%= f.collection_select :brand_eq, Post.select(:brand).distinct, :brand, :brand, include_blank: '指定なし' %>
   </div>
-  
   <div class="form-group">
     <%= f.label :category_eq, 'カテゴリー', class:'col-md-3 col-form-label' %>  
-    <%= f.collection_select :category_eq, Post.select(:category).distinct, :category, :category, include_blank: '選択してください' %>
+    <%= f.collection_select :category_eq, Post.select(:category).distinct, :category, :category, include_blank: '指定なし' %>
   </div>
-  
-  
-    <%= f.submit value: "検索" %>    
+  <%= f.submit value: "検索" %>    
 <% end %>
-
 <ul>
 <%= paginate @posts %>
   <% @posts.each do |post| %>
