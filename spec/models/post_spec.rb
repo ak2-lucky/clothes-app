@@ -64,7 +64,7 @@ RSpec.describe Post, type: :model do
       post.valid?
       expect(post.errors[:picture]).to include("\"jpg\"ファイルのアップロードは許可されていません。アップロードできるファイルタイプ: jpeg, png")
     end
-    
+
     it "ファイルの種類はjpegかpngであること" do
       post = create(:post, picture: image_with_jpeg)
       expect(post).to be_valid
