@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Post, type: :model do
   let!(:post) { create(:post) }
   let(:image_path1) { File.join(Rails.root, 'spec/fixtures/sample1.jpg') }
-  let(:image_path2) { File.join(Rails.root, 'spec/fixtures/sample3.jpeg') }
+  let(:image_path2) { File.join(Rails.root, 'spec/fixtures/sample2.jpeg') }
   let(:image_with_jpg) { Rack::Test::UploadedFile.new(image_path1) }
   let(:image_with_jpeg) { Rack::Test::UploadedFile.new(image_path2) }
 
