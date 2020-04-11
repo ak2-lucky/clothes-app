@@ -1,0 +1,24 @@
+<% provide(:title, 'Post Index') %>
+<h1>検索</h1>
+<%= search_form_for @q do |f| %>
+  <div class="form-group">
+    <%= f.label :sex_eq, '性別', class:'col-md-3 col-form-label' %>  
+    <%= f.select :sex_eq, ['Womens', 'Mens'] ,{include_blank: '指定なし' } %>
+  </div>
+  <div class="form-group">
+    <%= f.label :brand_eq, 'ブランド', class:'col-md-3 col-form-label' %>  
+    <%= f.select :brand_eq, ['UNIQLO', 'GU'] ,{include_blank: '指定なし' } %>
+  </div>
+  <div class="form-group">
+    <%= f.label :category_eq, 'カテゴリー', class:'col-md-3 col-form-label' %>  
+    <%= f.select :category_eq, ['アウター', 'トップス', 'ボトムス', 'アクセサリー','シューズ'] ,{include_blank: '指定なし' } %>
+  </div>
+  <%= f.submit value: "検索" %>    
+<% end %>
+<ul>
+  <%= paginate @posts %>
+    <% @posts.each do |post| %>
+      <%= render post %>
+    <% end %>
+  <%= paginate @posts %>
+</ul>

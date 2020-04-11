@@ -1,0 +1,7 @@
+<% provide(:title, 'Post Show') %>
+<%= render 'post', post: @post %>
+<h4>コメント</h4>
+<div id="comments_area">
+  <%= render partial: 'comments/index', locals: { comments: @comments } %>
+</div>  
+<%= render partial: 'comments/form', locals: { comment: @comment, post: @post } %>

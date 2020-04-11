@@ -1,0 +1,76 @@
+---
+ja:
+  errors:
+    messages:
+      carrierwave_processing_error: "処理できませんでした"
+      carrierwave_integrity_error: "は許可されていないファイルタイプです"
+      carrierwave_download_error: "はダウンロードできません"
+      extension_whitelist_error: "%{extension}ファイルのアップロードは許可されていません。アップロードできるファイルタイプ: %{allowed_types}"
+      extension_blacklist_error: "%{extension}ファイルのアップロードは許可されていません。アップロードできないファイルタイプ: %{prohibited_types}"
+      content_type_whitelist_error: "%{content_type}ファイルのアップロードは許可されていません"
+      content_type_blacklist_error: "%{content_type}ファイルのアップロードは許可されていません"
+      rmagick_processing_error: "rmagickがファイルを処理できませんでした。画像を確認してください。エラーメッセージ: %{e}"
+      mini_magick_processing_error: "MiniMagickがファイルを処理できませんでした。画像を確認してください。エラーメッセージ: %{e}"
+      min_size_error: "ファイルを%{min_size}バイト以上のサイズにしてください"
+      max_size_error: "ファイルを%{max_size}バイト以下のサイズにしてください"
+  views:
+    pagination:
+      first: "&laquo; 最初"
+      last: "最後 &raquo;"
+      previous: "&lsaquo; 前"
+      next: "次 &rsaquo;"
+      truncate: "..."
+  activerecord:
+    errors:
+      models:
+        post:
+          attributes:
+            content:
+              blank: "が入力されていません。"
+              too_long: "は%{count}文字以下に設定して下さい。"
+            brand:
+              blank: "が選択されていません。"
+            category:
+              blank: "が選択されていません。"
+            rate:
+              blank: "が入力されていません。"
+            sex:
+              blank: "が選択されていません。"
+            product_name:
+              blank: "が入力されていません。"
+        comment:
+          attributes:
+            content:
+              blank: "が入力されていません。"
+              too_long: "は%{count}文字以下に設定して下さい。"
+            
+      messages:
+        record_invalid: 'バリデーションに失敗しました: %{errors}'
+        restrict_dependent_destroy:
+          has_one: "%{record}が存在しているので削除できません"
+          has_many: "%{record}が存在しているので削除できません"
+    attributes:
+      post:
+        user_id: ユーザーid
+        content: レビュー内容
+        brand: ブランド
+        category: カテゴリー
+        rate: 評価
+        sex: 分類
+        created_at: 登録日時
+        updated_at: 更新日時
+        product_name: 商品の名前
+        picture: 商品画像
+      comment:
+        user_id: ユーザーid
+        post_id: 投稿のid
+        content: コメント
+      notification:
+        visitor_id: 通知を送ったユーザーid
+        visited_id: 通知を送られたユーザーのid
+        post_id: 通知された投稿のid
+        comment_id: 投稿へのコメントのid
+        checked: ユーザーが通知を確認したかどうか
+    models:
+      post: 投稿
+      comment: コメント

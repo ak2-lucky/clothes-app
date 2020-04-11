@@ -27,9 +27,13 @@ Rails.application.configure do
   end
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
-
+  config.action_mailer.raise_delivery_errors = true
+  
+  config.action_mailer.default_url_options = { protocol: 'https', host:'23c8f267a10d4be9be81740a89b9fec0.vfs.cloud9.us-east-2.amazonaws.com' }
+  config.action_mailer.delivery_method = :letter_opener_web
   config.action_mailer.perform_caching = false
+  
+  
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -51,4 +55,12 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+  config.after_initialize do
+    Bullet.enable = true        # bullet を有効にする
+    # 以下はN+1問題を発見した時のユーザーへの通知方法
+    Bullet.alert = true         # ブラウザのJavaScriptアラート
+    Bullet.bullet_logger = true # Rails.root/log/bullet.log
+    Bullet.console = true       # ブラウザの console.log の出力先
+    Bullet.add_footer = true    # 画面の下部に表示
+  end
 end

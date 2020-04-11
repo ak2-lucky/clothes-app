@@ -1,0 +1,15 @@
+<% provide(:title, "Home") %>
+
+<div class="inner cover">
+  <%= render 'layouts/flash_messages' %>
+  <div class="cover-content">
+    <h1 class="cover-heading">貴方にとってより良い服選びのために</h1>
+    <p class="lead">UNIQLOとGUの商品のレビューサイトです。</p>
+    <p class="lead">ログイン画面にサンプルユーザーの情報を記載していますので、そちらからでもログインは可能です。</p>
+    <p class="lead">
+      <div class="btn btn-lg btn-secondary">
+        <%= link_to "Sign Up",  new_user_registration_path %>
+      </div>
+    </p>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<% provide(:title, "User") %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h3>投稿者情報<br>
+        <%= @user.username %><br>
+        <%= @user.sex %>
+        <%= @user.height %>
+      </h3>
+      <% if @user == current_user %>
+        <%= link_to "プロフィール編集",  edit_user_registration_path %>
+      <% end %>
+    </section>
+    <section class="stats">
+      <%= render 'shared/status' %>
+    </section>
+  </aside>
+  <div class="col-md-8">
+    <% if @user.posts.any? %>
+      <div class ="user_posts">
+        <h3>(<%= @user.posts.count %>)</h3>
+        <div class ="show_page_paginate">
+          <%= paginate @posts %>
+        </div>
+        <ul class ="user_post">
+          <%= render @posts %>
+        </ul>
+        <div class ="show_page_paginate">
+          <%= paginate @posts %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
